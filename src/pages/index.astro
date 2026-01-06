@@ -1,0 +1,89 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+	<main>
+		<div class="content-wrapper">
+			<h1 class="title">solomonneas.dev</h1>
+			<p class="status">coming soon</p>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.content-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+		opacity: 0;
+		animation: fadeIn 1.5s ease-out forwards;
+	}
+
+	.title {
+		font-family: var(--font-mono);
+		font-size: 2rem;
+		font-weight: 400;
+		color: var(--color-text);
+		margin: 0;
+		position: relative;
+		display: inline-block;
+	}
+
+	.title::after {
+		content: "_";
+		animation: blink 1s step-end infinite;
+		color: var(--color-accent);
+		opacity: 0.7;
+	}
+
+	.status {
+		font-family: var(--font-serif);
+		font-size: 1.1rem;
+		font-style: italic;
+		color: var(--color-text);
+		opacity: 0.6;
+		margin: 0;
+		letter-spacing: 0.05em;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes blink {
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0;
+		}
+	}
+
+	@media (min-width: 768px) {
+		.title {
+			font-size: 3.5rem;
+		}
+		.status {
+			font-size: 1.25rem;
+		}
+	}
+</style>
